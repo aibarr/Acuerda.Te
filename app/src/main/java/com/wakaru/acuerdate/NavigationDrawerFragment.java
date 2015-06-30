@@ -1,5 +1,7 @@
 package com.wakaru.acuerdate;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -21,6 +23,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.wakaru.acuerdate.fragments.calendar;
+import com.wakaru.acuerdate.fragments.todayTasks;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -193,6 +198,24 @@ public class NavigationDrawerFragment extends Fragment {
 
     private void selectItem(int position) {
         mCurrentSelectedPosition = position;
+        Fragment fragment = null;
+
+        switch (position){
+            case 0:
+                fragment = todayTasks.newInstance("juan", "perez");
+                break;
+            case 1:
+                fragment = calendar.newInstance("juan", "perez");
+                break;
+            default:
+
+        }
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.container, fragment);
+
+
         if (mDrawerListView != null) {
             mDrawerListView.setItemChecked(position, true);
         }
