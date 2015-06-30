@@ -25,6 +25,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.wakaru.acuerdate.fragments.calendar;
+import com.wakaru.acuerdate.fragments.confEvents;
+import com.wakaru.acuerdate.fragments.generalSettings;
+import com.wakaru.acuerdate.fragments.profile;
+import com.wakaru.acuerdate.fragments.sendReminder;
 import com.wakaru.acuerdate.fragments.todayTasks;
 
 /**
@@ -207,7 +211,21 @@ public class NavigationDrawerFragment extends Fragment {
             case 1:
                 fragment = calendar.newInstance("juan", "perez");
                 break;
+            case 2:
+                fragment = sendReminder.newInstance("juan", "perez");
+                break;
+            case 3:
+                fragment = confEvents.newInstance("juan", "perez");
+                break;
+            case 4:
+                fragment = generalSettings.newInstance("juan", "perez");
+                break;
+            case 5:
+                fragment = profile.newInstance("juan", "perez");
+                break;
             default:
+                fragment = todayTasks.newInstance("juan", "perez");
+                break;
 
         }
 
