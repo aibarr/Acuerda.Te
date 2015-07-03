@@ -76,7 +76,7 @@ public class calendar extends Fragment {
         }
     }
 
-    @Override
+   /* @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
@@ -85,7 +85,7 @@ public class calendar extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }
+    }*/
 
     @Override
     public void onDetach() {

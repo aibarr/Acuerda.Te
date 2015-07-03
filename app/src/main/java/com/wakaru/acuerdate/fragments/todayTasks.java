@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.wakaru.acuerdate.R;
 
@@ -24,6 +25,9 @@ public class todayTasks extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    //Parámetros a usar en las vistas
+    private ListView lvTodayTasks;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -76,7 +80,7 @@ public class todayTasks extends Fragment {
         }
     }
 
-    @Override
+    /*@Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
@@ -85,7 +89,7 @@ public class todayTasks extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }
+    }*/
 
     @Override
     public void onDetach() {

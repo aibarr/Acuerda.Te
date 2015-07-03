@@ -202,37 +202,6 @@ public class NavigationDrawerFragment extends Fragment {
 
     private void selectItem(int position) {
         mCurrentSelectedPosition = position;
-        Fragment fragment = null;
-
-        switch (position){
-            case 0:
-                fragment = todayTasks.newInstance("juan", "perez");
-                break;
-            case 1:
-                fragment = calendar.newInstance("juan", "perez");
-                break;
-            case 2:
-                fragment = sendReminder.newInstance("juan", "perez");
-                break;
-            case 3:
-                fragment = confEvents.newInstance("juan", "perez");
-                break;
-            case 4:
-                fragment = generalSettings.newInstance("juan", "perez");
-                break;
-            case 5:
-                fragment = profile.newInstance("juan", "perez");
-                break;
-            default:
-                fragment = todayTasks.newInstance("juan", "perez");
-                break;
-
-        }
-
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.container, fragment);
-
 
         if (mDrawerListView != null) {
             mDrawerListView.setItemChecked(position, true);
@@ -243,6 +212,8 @@ public class NavigationDrawerFragment extends Fragment {
         if (mCallbacks != null) {
             mCallbacks.onNavigationDrawerItemSelected(position);
         }
+
+
     }
 
     @Override
@@ -291,10 +262,10 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
+        /*if (item.getItemId() == R.id.action_example) {
             Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }

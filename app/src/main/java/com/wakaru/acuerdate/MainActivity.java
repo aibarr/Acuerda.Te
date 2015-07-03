@@ -1,6 +1,8 @@
 package com.wakaru.acuerdate;
 
 import android.app.Activity;
+import android.net.Uri;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -17,6 +19,13 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.wakaru.acuerdate.fragments.calendar;
+import com.wakaru.acuerdate.fragments.confEvents;
+import com.wakaru.acuerdate.fragments.generalSettings;
+import com.wakaru.acuerdate.fragments.profile;
+import com.wakaru.acuerdate.fragments.sendReminder;
+import com.wakaru.acuerdate.fragments.todayTasks;
 
 
 public class MainActivity extends ActionBarActivity
@@ -50,10 +59,46 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        /*FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+                .commit();*/
+        Fragment fragment;
+
+        switch (position){
+            case 0:
+                fragment = todayTasks.newInstance("juan", "perez");
+                break;
+            case 1:
+                fragment = calendar.newInstance("juan", "perez");
+                break;
+            case 2:
+                fragment = sendReminder.newInstance("juan", "perez");
+                break;
+            case 3:
+                fragment = confEvents.newInstance("juan", "perez");
+                break;
+            case 4:
+                fragment = generalSettings.newInstance("juan", "perez");
+                break;
+            case 5:
+                fragment = profile.newInstance("juan", "perez");
+                break;
+            default:
+                fragment = todayTasks.newInstance("juan", "perez");
+                break;
+
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.container, fragment);
+        System.out.println(position);
+        ft.commit();
+    }
+
+
+    public void onFragmentInteraction(Uri uri){
+        System.out.println("Wena");
     }
 
     public void onSectionAttached(int number) {
@@ -113,7 +158,13 @@ public class MainActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
+
+
+
+
     }
+
+
 
     /**
      * A placeholder fragment containing a simple view.
@@ -154,5 +205,6 @@ public class MainActivity extends ActionBarActivity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
+
 
 }
