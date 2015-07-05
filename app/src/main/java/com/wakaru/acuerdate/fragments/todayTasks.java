@@ -1,15 +1,21 @@
 package com.wakaru.acuerdate.fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.wakaru.acuerdate.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,6 +34,12 @@ public class todayTasks extends Fragment {
 
     //Parámetros a usar en las vistas
     private ListView lvTodayTasks;
+    private List<String> taskList;
+    //private VivzAdapterTasks tAdapter;
+
+    private List<String> dateList;
+    private List<String> timeList;
+    private List<String> subjectList;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -60,17 +72,40 @@ public class todayTasks extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        subjectList = new ArrayList<String>();
+        dateList = new ArrayList<String>();
+        timeList = new ArrayList<String>();
+
+        for(int i = 0; i < 4; i++){
+            dateList.add("2015/07/06");
+            timeList.add("11:50");
+        }
+        subjectList.add("Llevar el Informe");
+        subjectList.add("Bañar al perro");
+        subjectList.add("Comprar pan en el supermercado");
+        subjectList.add("Pagar las cuentas");
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.fragment_today_tasks, container, false);
+
+        //Elementos de la vista
+        lvTodayTasks = (ListView)rootView.findViewById(R.id.tTasks_list);
+        /*tAdapter = new VivzAdapterTasks(getActivity() ,subjectList, timeList, dateList);
+        lvTodayTasks.setAdapter(tAdapter);*/
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_today_tasks, container, false);
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -113,3 +148,4 @@ public class todayTasks extends Fragment {
     }
 
 }
+

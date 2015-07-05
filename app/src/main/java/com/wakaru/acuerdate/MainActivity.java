@@ -25,6 +25,7 @@ import com.wakaru.acuerdate.fragments.confEvents;
 import com.wakaru.acuerdate.fragments.generalSettings;
 import com.wakaru.acuerdate.fragments.profile;
 import com.wakaru.acuerdate.fragments.sendReminder;
+import com.wakaru.acuerdate.fragments.tasksListFragment;
 import com.wakaru.acuerdate.fragments.todayTasks;
 import com.wakaru.acuerdate.model.TasksDataSource;
 
@@ -76,7 +77,7 @@ public class MainActivity extends ActionBarActivity
 
         switch (position){
             case 0:
-                fragment = todayTasks.newInstance("juan", "perez");
+                fragment = tasksListFragment.newInstance("juan", "perez");
                 break;
             case 1:
                 fragment = calendar.newInstance("juan", "perez");

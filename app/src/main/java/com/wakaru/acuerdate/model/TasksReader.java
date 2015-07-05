@@ -22,7 +22,7 @@ public class TasksReader extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TasksDataSource.CREATE_TASKS_SCRIPT);
-        db.execSQL(TasksDataSource.INSERT_TASKS_SCRIPT);
+        //db.execSQL(TasksDataSource.INSERT_TASKS_SCRIPT);
     }
 
     @Override
