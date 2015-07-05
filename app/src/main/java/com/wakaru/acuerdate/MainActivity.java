@@ -26,6 +26,9 @@ import com.wakaru.acuerdate.fragments.generalSettings;
 import com.wakaru.acuerdate.fragments.profile;
 import com.wakaru.acuerdate.fragments.sendReminder;
 import com.wakaru.acuerdate.fragments.todayTasks;
+import com.wakaru.acuerdate.model.TasksDataSource;
+
+import org.w3c.dom.Comment;
 
 
 public class MainActivity extends ActionBarActivity
@@ -41,6 +44,9 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
+    //Instancia de la BD;
+    private TasksDataSource dataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +60,9 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        //Creando BD
+        dataSource = new TasksDataSource(this);
     }
 
     @Override
