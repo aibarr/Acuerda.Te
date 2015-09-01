@@ -80,10 +80,10 @@ public class MainActivity extends ActionBarActivity
                 fragment = tasksListFragment.newInstance("juan", "perez");
                 break;
             case 1:
-                fragment = calendar.newInstance("juan", "perez");
+                fragment = calendar.newInstance();
                 break;
             case 2:
-                fragment = sendReminder.newInstance("juan", "perez");
+                fragment = sendReminder.newInstance();
                 break;
             case 3:
                 fragment = confEvents.newInstance("juan", "perez");
