@@ -10,7 +10,9 @@
         <item name="homeAsUpIndicator">@drawable/ic_drawer</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_drawer</item>
 
+
     </style>
+    <style name="AppBlackTheme" parent="android:Theme.Holo" />
 
 </resources>
 
